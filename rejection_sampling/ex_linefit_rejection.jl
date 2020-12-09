@@ -31,14 +31,14 @@ nm=3
 ## Rejection sampler
 N_ite=2000000
 N_acc=0
-global logL_max = -250
+logL_max = -250
 
 m_post=zeros((nm,N_ite))
 #println("Start rejection sampling")
 t_start=time()
-for i = 1:N_ite
-    local m = sample_prior()
-    local d = forward(m,x_obs)
+for i = 1:N_ite    
+    m = sample_prior()
+    d = forward(m,x_obs)
     logL=log_likelihood(d,d_obs,d_std)
     
     if logL_max<logL
@@ -49,7 +49,7 @@ for i = 1:N_ite
 
     Pacc = exp(logL-logL_max)
     if rand(1)[1]<Pacc
-        global N_acc = N_acc+1
+        N_acc = N_acc+1
         m_post[:,N_acc]=m
      end
 end
