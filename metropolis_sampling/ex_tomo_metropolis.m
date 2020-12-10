@@ -1,5 +1,5 @@
 clear all;close all
-doPlot=1;
+doPlot=0;
 
 % Load data
 MAT=load('ArrenaesGprTomo_30_60.mat');
@@ -7,7 +7,7 @@ MAT=load('ArrenaesGprTomo_30_60.mat');
 
 G=MAT.G;
 d0=MAT.d0;
-Cd=MAT.Cd+eye(size(MAT.Cd,1)).*0.2^2;
+Cd=MAT.Cd+eye(size(MAT.Cd,1)).*0.4^2;
 m0=MAT.m0;
 Cm=MAT.Cm;
 d_obs=MAT.d_obs;
@@ -75,7 +75,7 @@ for i=1:N_ite
     
     logL_post(i)=logL_cur;
     
-    if (mod(i,1000)==0)
+    if (mod(i,20000)==0)
         disp(sprintf('i=%5d/%5d, logL_cur=%5.3f, Nacc=%4d',i,N_ite, logL_cur, N_acc));
     end
     if (doPlot==1)&&(mod(i,1000)==0)

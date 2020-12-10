@@ -31,7 +31,7 @@ vars = matread("ArrenaesGprTomo_30_60.mat");
 G = vars["G"]
 d0 = vars["d0"]
 Cd = vars["Cd"]
-Cd = Cd + I(size(Cd,1))*0.8.^2
+Cd = Cd + I(size(Cd,1))*0.4.^2
 m0 = vars["m0"]
 Cm = vars["Cm"]
 d_obs = vars["d_obs"]
@@ -46,8 +46,6 @@ iCd = inv(Cd);
 # next line for faster prior sampler
 C = cholesky(Cm)
 L = C.L
-
-
 
 ## The extended Metropolis algorithm
 N_ite=100000
@@ -101,7 +99,7 @@ for i=1:N_ite
     
     logL_post[i]=logL_cur;
     
-    if (mod(i,1000)==0)
+    if (mod(i,20000)==0)
         #@printf("i=%5d/%5d, logL_cur=%5.3f, Nacc=%4d, P_acc=%3.2f\n",i,N_ite, logL_cur, N_acc, P_acc);
         @printf("i=%5d/%5d, logL=%5.3f,%5.3f, Nacc=%4d, P_acc=%3.2f\n",i,N_ite, logL_cur,logL_pro, N_acc, P_acc);
     end
