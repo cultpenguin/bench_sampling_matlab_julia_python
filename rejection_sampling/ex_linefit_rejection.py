@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
-import numpy              as np
+import numpy as np
 import scipy.io as sio
-import time               as time
+import time as time
+import platform
 
 def forward(m,x):
     d= m[0]+ m[1]*x + m[2]*x*x;
@@ -62,7 +63,7 @@ for i in range(N_ite):
 t_stop=time.time()
 #print("End rejection sampling")
 t_elapsed=t_stop-t_start
-print("PYTHON Time elapsed = %4.2fs, N_ite=%d, %d iterations/s" % (t_elapsed,N_ite,N_ite/t_elapsed))
+print("%40s: t=%6.2fs, N_ite=%8d, %8d iterations/s" % ("PYTHON "+platform.python_version(), t_elapsed,N_ite,np.ceil(N_ite/t_elapsed)))
 
 #%% Posterior stats
 showPostStat=0

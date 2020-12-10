@@ -57,7 +57,7 @@ t_stop=time()
 #println("End rejection sampling")
 t_elapsed  = t_stop-t_start
 
-@printf("JULIA Time elapsed =%4.2fs, N_ite=%d, %d iterations/s\n", t_elapsed, N_ite, N_ite/t_elapsed)
+@printf("%34s%6s: t=%6.2fs, N_ite=%8d, %8d iterations/s\n", "JULIA", VERSION,t_elapsed, N_ite, ceil(N_ite/t_elapsed))
 
 ## Posterior statistics
 showPostStat=0
