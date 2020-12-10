@@ -50,7 +50,7 @@ L = C.L
 
 
 ## The extended Metropolis algorithm
-N_ite=10000
+N_ite=100000
 
 # store every 'i_save' model
 i_save = 10;
