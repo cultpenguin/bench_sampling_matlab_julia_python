@@ -143,17 +143,17 @@ if doPlot==1;
         set(gca,'ydir','revers')
         caxis(cax)
     end
-    
-end
 
-%% Posterior movie
-figure(13);clf
-for i=1:100:size(m_post,3);
-    imagesc(x,y,m_post(:,:,i));axis image
-    title(sprintf('Real#%d',i))
-    set(gca,'ydir','revers')
-    caxis(cax)
-    drawnow;
+    %% Posterior movie
+    figure(13);clf
+    for i=1:100:size(m_post,3);
+        imagesc(x,y,m_post(:,:,i));axis image
+        title(sprintf('Real#%d',i))
+        set(gca,'ydir','revers')
+        caxis(cax)
+        drawnow;
+    end
+
 end
 
 %% Functions
