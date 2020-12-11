@@ -17,24 +17,23 @@ Run all three using
 
 Note that for this run JULIA had a signifcant higher CPU load (800%) than MATLAB (600%)!
 
-    MATLAB 9.8.0.1323502 (R2020a) (threads= 6): t= 78.34s, N_ite=  100000,     1277 iterations/s
-    MATLAB 9.8.0.1323502 (R2020a) (threads= 1): t=128.32s, N_ite=  100000,      780 iterations/s
-                      JULIA 1.5.3: t=287.91s, N_ite=  100000,      348 iterations/s
-                     PYTHON 3.8.5: t=111.66s, N_ite=  100000,      896 iterations/s
+    MATLAB 9.8.0.1323502 (R2020a) (threads= 6): t= 81.56s, N_ite=  100000,     1227 iterations/s
+    MATLAB 9.8.0.1323502 (R2020a) (threads= 1): t=140.65s, N_ite=  100000,      711 iterations/s
+                      JULIA 1.5.3: t=275.50s, N_ite=  100000,      363 iterations/s
+                     PYTHON 3.8.5: t=109.93s, N_ite=  100000,      910 iterations/s
 
 ### OS:Pop\!_OS 20.10, AMD Ryzen Threadripper 3990X, 256GB RAM, 
                      
-    MATLAB 9.9.0.1495850 (R2020b) Update 1 (threads=64): t=166.73s, N_ite=  100000,      600 iterations/s
-    MATLAB 9.9.0.1495850 (R2020b) Update 1 (threads= 1): t=156.40s, N_ite=  100000,      640 iterations/s
-                               JULIA 1.5.3: t=146.68s, N_ite=  100000,      682 iterations/s
-                              PYTHON 3.8.5: t= 26.97s, N_ite=  100000,     3708 iterations/s
-
+    MATLAB 9.9.0.1495850 (R2020b) Update 1 (threads=64): t=168.12s, N_ite=  100000,      595 iterations/s
+    MATLAB 9.9.0.1495850 (R2020b) Update 1 (threads= 1): t=147.83s, N_ite=  100000,      677 iterations/s
+                               JULIA 1.5.3: t=150.19s, N_ite=  100000,      666 iterations/s
+                              PYTHON 3.8.5: t= 18.73s, N_ite=  100000,     5339 iterations/s
+              
 ### OS:Pop\!_OS 20.10, AMD Ryzen Threadripper 2990WX, 64GB RAM, 
 
-    MATLAB 9.8.0.1359463 (R2020a) Update 1: t=153.75s, N_ite=  100000,      651 iterations/s
-                  JULIA 1.5.3 ( 1 threads): t=225.60s, N_ite=  100000,      444 iterations/s
-                  JULIA 1.5.3 ( 2 threads): t=221.08s, N_ite=  100000,      453 iterations/s
-                  JULIA 1.5.3 ( 8 threads): t=165.30s, N_ite=  100000,      605 iterations/s
-                  JULIA 1.5.3 (32 threads): t=171.65s, N_ite=  100000,      583 iterations/s
+    MATLAB 9.8.0.1359463 (R2020a) Update 1 (threads=32): t=154.58s, N_ite=  100000,      647 iterations/s
+    MATLAB 9.8.0.1359463 (R2020a) Update 1 (threads= 1): t=153.93s, N_ite=  100000,      650 iterations/s
+                               JULIA 1.5.3: t=162.38s, N_ite=  100000,      616 iterations/s
+                              PYTHON 3.8.3: t=174.49s, N_ite=  100000,      574 iterations/s
 
 
