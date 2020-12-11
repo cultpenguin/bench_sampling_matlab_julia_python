@@ -96,8 +96,7 @@ for i in np.arange(N_ite):
     if (np.mod(i+1,20000)==0):
         print('i=%5d/%5d, logL_cur=%5.3f, Nacc=%4d' % (i+1,N_ite, logL_cur, N_acc))
         
-    if (doPlot==1)&(np.mod(i,10000)==0):
-        
+    if (doPlot>1)&(np.mod(i,10000)==0):        
 
         fig=plt.figure(1)
         plt.clf()
@@ -133,14 +132,15 @@ m_post = m_post[:,:,i_burnin:-1]
 m_mean = np.mean(m_post, axis=2)
 m_std = np.std(m_post, axis=2)
 
-fig=plt.figure(1)
-plt.clf()
-ax1=fig.add_subplot(1,2,1)
-ax1.imshow(m_mean, vmin=0.11, vmax=0.18,  extent=[x.min(), x.max(), y.min(), y.max()])     
-ax1.set_title('Mean')
-ax2=fig.add_subplot(1,2,2)
-ax2.imshow(m_std, vmin=0.0, vmax=0.02,  extent=[x.min(), x.max(), y.min(), y.max()])
-ax2.set_title('i=%d' % (i))
-ax2.set_title('Std')
-plt.savefig('post_python')
+if (doPlot>0):
+    fig=plt.figure(1)
+    plt.clf()
+    ax1=fig.add_subplot(1,2,1)
+    ax1.imshow(m_mean, vmin=0.11, vmax=0.18,  extent=[x.min(), x.max(), y.min(), y.max()])     
+    ax1.set_title('Mean')
+    ax2=fig.add_subplot(1,2,2)
+    ax2.imshow(m_std, vmin=0.0, vmax=0.02,  extent=[x.min(), x.max(), y.min(), y.max()])
+    ax2.set_title('i=%d' % (i))
+    ax2.set_title('Std')
+    plt.savefig('post_python')
         

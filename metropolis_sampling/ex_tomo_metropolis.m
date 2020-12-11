@@ -78,7 +78,7 @@ for i=1:N_ite
     if (mod(i,20000)==0)
         disp(sprintf('i=%5d/%5d, logL_cur=%5.3f, Nacc=%4d',i,N_ite, logL_cur, N_acc));
     end
-    if (doPlot==1)&&(mod(i,10000)==0)
+    if (doPlot>1)&&(mod(i,10000)==0)
         subplot(2,2,1);
         i1=ceil(i/5);
         plot(i1:i,logL_post(i1:i));
@@ -113,7 +113,7 @@ m_post=m_post(:,:,burnin:end);
 
 
 %% Posterior statistics    
-if doPlot==1;
+if doPlot>0;
 
     % Posterior mean and std
     cax=[-1 1].*.04+m0(1);
@@ -132,7 +132,7 @@ if doPlot==1;
     title('Posterior pointwise std')
     set(gca,'ydir','revers')
     colorbar
-    printf('-dpng','post_matlab')
+    print('-dpng','post_matlab')
 
     
     % Posterior reals
@@ -145,6 +145,7 @@ if doPlot==1;
         set(gca,'ydir','revers')
         caxis(cax)
     end
+    print('-dpng','post_reals_matlab')
 
     %% Posterior movie
     figure(13);clf
