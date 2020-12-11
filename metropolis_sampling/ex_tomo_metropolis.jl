@@ -47,7 +47,7 @@ C = cholesky(Cm)
 L = C.L
 
 ## The extended Metropolis algorithm
-N_ite=30000;#N_ite=100000
+N_ite=100000
 
 # store every 'i_save' model
 i_save = 10;
