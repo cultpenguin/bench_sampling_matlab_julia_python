@@ -1,5 +1,5 @@
 clear all;close all
-doPlot=0;
+doPlot=1;
 N_threads = maxNumCompThreads;
 % Load data
 MAT=load('ArrenaesGprTomo_30_60.mat');
