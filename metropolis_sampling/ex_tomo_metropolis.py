@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-doPlot=1
+doPlot=0
 import numpy as np
 import scipy.io as sio
 import time as time
