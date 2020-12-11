@@ -10,7 +10,8 @@ d0=MAT.d0;
 Cd=MAT.Cd+eye(size(MAT.Cd,1)).*0.4^2;
 m0=MAT.m0;
 Cm=MAT.Cm;
-d_obs=MAT.d_obs;
+d_obs=MAT.d_ob
+s;
 d_std=MAT.d_std;
 x=MAT.x;
 y=MAT.y;
