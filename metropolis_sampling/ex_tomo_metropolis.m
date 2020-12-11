@@ -1,6 +1,6 @@
 clear all;close all
 doPlot=0;
-
+N_threads = maxNumCompThreads;
 % Load data
 MAT=load('ArrenaesGprTomo_30_60.mat');
 %MAT=load('ArrenaesGprTomo_55_115.mat');
@@ -10,8 +10,7 @@ d0=MAT.d0;
 Cd=MAT.Cd+eye(size(MAT.Cd,1)).*0.4^2;
 m0=MAT.m0;
 Cm=MAT.Cm;
-d_obs=MAT.d_ob
-s;
+d_obs=MAT.d_obs;
 d_std=MAT.d_std;
 x=MAT.x;
 y=MAT.y;
@@ -79,7 +78,7 @@ for i=1:N_ite
     if (mod(i,20000)==0)
         disp(sprintf('i=%5d/%5d, logL_cur=%5.3f, Nacc=%4d',i,N_ite, logL_cur, N_acc));
     end
-    if (doPlot==1)&&(mod(i,1000)==0)
+    if (doPlot==1)&&(mod(i,10000)==0)
         subplot(2,2,1);
         i1=ceil(i/5);
         plot(i1:i,logL_post(i1:i));
@@ -106,7 +105,7 @@ end
 t_stop=now;
 t_elapsed  = (t_stop-t_start)*3600*24;
 
-fprintf("%40s: t=%6.2fs, N_ite=%8d, %8d iterations/s\n", ['MATLAB ',version], t_elapsed, N_ite, ceil(N_ite/t_elapsed))
+fprintf("%40s (threads=%2d): t=%6.2fs, N_ite=%8d, %8d iterations/s\n", ['MATLAB ',version], N_threads, t_elapsed, N_ite, ceil(N_ite/t_elapsed))
 
 %% Remove models before burn-in
 burnin=ceil(10000/i_save);
@@ -133,6 +132,8 @@ if doPlot==1;
     title('Posterior pointwise std')
     set(gca,'ydir','revers')
     colorbar
+    printf('-dpng','post_matlab')
+
     
     % Posterior reals
     figure(12);
