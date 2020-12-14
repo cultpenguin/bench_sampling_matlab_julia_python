@@ -16,7 +16,8 @@ def sample_prior():
     return m1, m2, m3
 
 def log_likelihood(d,d_obs,d_std):
-    logL=-0.5*np.sum( np.power((d_obs-d),2)/np.power(d_std,2) ) 
+    logL=-0.5*np.sum( (d_obs-d)**2/d_std**2 ) 
+    
     return logL
 
 
@@ -26,6 +27,7 @@ def log_likelihood(d,d_obs,d_std):
 D = sio.loadmat('linefit_nd35.mat')
 d_obs = D['d_obs'][0].astype('<f8')
 d_std = D['d_std'][0].astype('<f8')
+
 #d_std = D['d_std'][0].astype(d_obs.dtype) # otherwise d_std**2 does
 x_obs = D['x_obs'][0]
 nm=3
