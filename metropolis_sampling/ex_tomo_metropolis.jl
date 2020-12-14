@@ -1,7 +1,7 @@
 ##
 using Random, MAT, Statistics, Printf, LinearAlgebra
-doPlot=1;
-
+using Plots
+doPlot=0
 
 ## Functions
 
@@ -24,7 +24,6 @@ function sample_prior(m0,L,nx,ny)
 end
 
 ## LOAD SOME DATA
-#vars = matread("linefit_nd05.mat")
 vars = matread("ArrenaesGprTomo_30_60.mat");
 #vars = matread("ArrenaesGprTomo_55_115.mat");
 
@@ -104,10 +103,19 @@ for i=1:N_ite
         @printf("i=%5d/%5d, logL=%5.3f,%5.3f, Nacc=%4d, P_acc=%3.2f\n",i,N_ite, logL_cur,logL_pro, N_acc, P_acc);
     end
     
+    if (mod(i,10000)==0)&(doPlot>1)
+        i1=Int(ceil(i/5))
+        p1=heatmap(m_cur)
+        p2=plot(i1:i,logL_post[i1:i])
+        p3=plot([d_cur[:],d_obs[:]])
+        l = @layout [a ; b c]
+        plot(p1, p2, p3, layout = l)
+    end
+
     # save model?
     if mod(i,i_save)==0
         global n_save = n_save+1;
-        m_post[:,:,n_save]=m_cur;
+        m_post[:,:,n_save]=m_cur;        
     end
     
 end
@@ -116,62 +124,17 @@ t_elapsed  = (t_stop-t_start)
 
 @printf("%34s%6s: t=%6.2fs, N_ite=%8d, %8d iterations/s\n", "JULIA", VERSION,t_elapsed, N_ite, ceil(N_ite/t_elapsed))
 
-## 
-#using Plots
-#plot(logL_post)
+## Burnin
+burnin=Int(ceil(10000/i_save))
+m_post=m_post[:,:,burnin:end];
 
-#= %% Remove models before burn-in
-burnin=ceil(10000/i_save);
-m_post=m_post(:,:,burnin:end);
+m_mean = mean(m_post, dims=3)
+m_std = std(m_post, dims=3)
 
-
-%% Posterior statistics    
-if doPlot==1;
-
-    % Posterior mean and std
-    cax=[-1 1].*.04+m0(1);
-    figure(11);clf
-    m_post_mean=mean(m_post,3);
-    m_post_std=std(m_post,0,3);
-    subplot(1,2,1);
-    imagesc(x,y,m_post_mean);axis image
-    title('Posterior pointwise mean')
-    set(gca,'ydir','revers')
-    caxis(cax)
-    set(gca,'ydir','reverse')
-    colorbar
-    subplot(1,2,2);
-    imagesc(x,y,m_post_std);axis image
-    title('Posterior pointwise std')
-    set(gca,'ydir','revers')
-    colorbar
-    
-    % Posterior reals
-    figure(12);
-    iplot=ceil(linspace(1,size(m_post,3),16));
-    for i=1:length(iplot);
-        subplot(4,i_save = 10;
-        n_save = 0;
-        
-    drawnow;
+## Plot posterior stats
+if (doPlot>0)
+    heatmap(m_mean[:,:,1])
+    savefig("julia_mean.png") 
+    heatmap(m_std[:,:,1])
+    savefig("julia_std.png") 
 end
-
-%% Functions
-function m_est=sample_prior(m0,L,nx,ny)
-r=randn(size(L,1),1);
-m_est = m0(:) + L*r;
-if nargin>2
-    m_est=reshape(m_est,ny,nx);
-end
-end
-
-function d = forward(G,m)
-d= G*(1./m(:));
-end
-
-function logL = log_likelihood(d,d_obs,iCd)
-logL = -0.5*(d-d_obs)'*iCd*(d-d_obs);
-end
-
-
- =#
