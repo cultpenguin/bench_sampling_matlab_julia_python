@@ -1,7 +1,10 @@
 ##
 using Random, MAT, Statistics, Printf, LinearAlgebra
 using Plots
+#BLAS.set_num_threads(4)
 doPlot=0
+
+N_threads = ccall((:openblas_get_num_threads64_, Base.libblas_name), Cint, ())
 
 ## Functions
 
@@ -122,7 +125,7 @@ end
 t_stop=time()
 t_elapsed  = (t_stop-t_start)
 
-@printf("%34s%6s: t=%6.2fs, N_ite=%8d, %8d iterations/s\n", "JULIA", VERSION,t_elapsed, N_ite, ceil(N_ite/t_elapsed))
+@printf("%24s%6s (nthreads=%d): t=%6.2fs, N_ite=%8d, %8d iterations/s\n", "JULIA", VERSION,N_threads,t_elapsed, N_ite, ceil(N_ite/t_elapsed))
 
 ## Burnin
 burnin=Int(ceil(10000/i_save))

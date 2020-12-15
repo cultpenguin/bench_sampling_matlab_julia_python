@@ -1,3 +1,5 @@
+# export MKL_DEBUG_CPU_TYPE=5
+# export OPENBLAS_NUM_THREADS=8
 # Run matlab
 matlab -batch "ex_tomo_metropolis; exit"
 # Run matlab
