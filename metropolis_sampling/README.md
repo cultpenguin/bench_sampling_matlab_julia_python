@@ -27,12 +27,12 @@ The python version is installed thrugh the 64 bit Anaconda distribution from htt
 
 ### Windows 10, Intel i7-8700K 6 cores/12 threads, 32GB RAM (WSL: indicates running is WLS/Ubuntu20.10)
 
-MATLAB 9.9.0.1495850 (R2020b) Update 1 (threads= 6): t=139.11s, N_ite=  100000,      719 iterations/s
-MATLAB 9.9.0.1495850 (R2020b) Update 1 (threads= 1): t=187.37s, N_ite=  100000,      534 iterations/s
-                                        JULIA 1.5.3: t=265.37s, N_ite=  100000,      377 iterations/s
-                                       PYTHON 3.7.9: t=163.09s, N_ite=  100000,      614 iterations/s
-                                  JULIA 1.5.3 (WSL): t=309.31s, N_ite=  100000,      324 iterations/s
-                                 PYTHON 3.7.4 (WSL): t=143.69s, N_ite=  100000,      696 iterations/s
+    MATLAB 9.9.0.1495850 (R2020b) Update 1 (threads= 6): t=139.11s, N_ite=  100000,      719 iterations/s
+    MATLAB 9.9.0.1495850 (R2020b) Update 1 (threads= 1): t=187.37s, N_ite=  100000,      534 iterations/s
+                                            JULIA 1.5.3: t=265.37s, N_ite=  100000,      377 iterations/s
+                                           PYTHON 3.7.9: t=163.09s, N_ite=  100000,      614 iterations/s
+                                      JULIA 1.5.3 (WSL): t=309.31s, N_ite=  100000,      324 iterations/s
+                                     PYTHON 3.7.4 (WSL): t=143.69s, N_ite=  100000,      696 iterations/s
 
 ### OS:Pop\!_OS 20.10, Intel i7-8700, 32GB RAM, 
 
