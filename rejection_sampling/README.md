@@ -36,16 +36,11 @@ In all cases Python is (more than 20 times) slower Matlab and Julia!
                  
 ### OS:Pop\!_OS 20.10, Intel i7-8700, 6 cores/12 threads, 32GB RAM, 
 
-           MATLAB 9.8.0.1323502 (R2020a): t=  1.43s, N_ite= 2000000,  1400625 iterations/s
-                             JULIA 1.5.3: t=  1.75s, N_ite= 2000000,  1140608 iterations/s
-                            PYTHON 3.8.5: t= 47.35s, N_ite= 2000000,    42236 iterations/s
+           MATLAB 9.8.0.1323502 (R2020a): t=  1.43s, N_ite= 2000000,  1400971 iterations/s
+           MATLAB 9.8.0.1323502 (R2020a): t=  1.50s, N_ite= 2000000,  1334352 iterations/s
+                             JULIA 1.5.3: t=  1.77s, N_ite= 2000000,  1131726 iterations/s
+                            PYTHON 3.8.5: t= 43.87s, N_ite= 2000000,    45586 iterations/s
 
-### OS:Pop\!_OS 20.10, AMD Ryzen Threadripper 3990X 64 cores/128 threads, 256GB RAM, 
-
-    MATLAB 9.9.0.1495850 (R2020b) Update 1: t=  1.85s, N_ite= 2000000,  1080165 iterations/s
-    MATLAB 9.9.0.1495850 (R2020b) Update 1: t=  1.85s, N_ite= 2000000,  1082824 iterations/s
-                               JULIA 1.5.3: t=  1.98s, N_ite= 2000000,  1011213 iterations/s
-                              PYTHON 3.8.5: t= 50.08s, N_ite= 2000000,    39939 iterations/s
                               
 ### OS:Pop\!_OS 20.10, AMD Ryzen Threadripper 2990WX 32 cores/64 threads, 64GB RAM, 
 
@@ -53,3 +48,10 @@ In all cases Python is (more than 20 times) slower Matlab and Julia!
     MATLAB 9.8.0.1359463 (R2020a) Update 1: t=  2.10s, N_ite= 2000000,   953647 iterations/s
                                JULIA 1.5.3: t=  2.16s, N_ite= 2000000,   925663 iterations/s
                               PYTHON 3.8.3: t= 64.47s, N_ite= 2000000,    31025 iterations/s
+
+### OS:Pop\!_OS 20.10, AMD Ryzen Threadripper 3990X 64 cores/128 threads, 256GB RAM, 
+
+    MATLAB 9.9.0.1495850 (R2020b) Update 1: t=  1.85s, N_ite= 2000000,  1080165 iterations/s
+    MATLAB 9.9.0.1495850 (R2020b) Update 1: t=  1.85s, N_ite= 2000000,  1082824 iterations/s
+                               JULIA 1.5.3: t=  1.98s, N_ite= 2000000,  1011213 iterations/s
+                              PYTHON 3.8.5: t= 50.08s, N_ite= 2000000,    39939 iterations/s
