@@ -15,8 +15,13 @@ Run all three using
 The binary used for Julia is the standard 64bit download from https://julialang.org/downloads/.
 The python version is installed thrugh the 64 bit Anaconda distribution from https://www.anaconda.com/products/individual.
 
+Perhaps a bit surprising Julia consistently ends up in the last place, with respect to clock time.
 
-### Windows 10, Intel i7-8650U 4cores/8threads, 16GB RAM [Surfacebook 2] (WSL: indicates running is WLS/Ubuntu20.10)
+When using Matlab on Ryzen CPU (on POP\!_OS), only one thread is used even though "N = maxNumCompThreads" report many more available threads?). On Intel/Windows 10 Matlab makes can make use of all available cores.
+
+Some version of Python use all avaiable cores by default, where as others use only one thread (see below). When Python use all available threads on multicore machines it is by far the fastest implementation.
+
+### Windows 10, Intel i7-8650U, 4 cores/8 threads, 16GB RAM [Surfacebook 2] (WSL: indicates running is WLS/Ubuntu20.10)
 
            MATLAB 9.7.0.1190202 (R2019b) (threads= 4): t=191.03s, N_ite=  100000,      524 iterations/s
                                    PYTHON 3.8.5 (WSL): t=211.21s, N_ite=  100000,      474 iterations/s
@@ -25,7 +30,7 @@ The python version is installed thrugh the 64 bit Anaconda distribution from htt
                                           JULIA 1.5.3: t=397.83s, N_ite=  100000,      252 iterations/s
                                     JULIA 1.5.3 (WSL): t=658.33s, N_ite=  100000,      152 iterations/s
 
-### Windows 10, Intel i7-8700K 6 cores/12 threads, 32GB RAM (WSL: indicates running is WLS/Ubuntu20.10)
+### Windows 10, Intel i7-8700K, 6 cores/12 threads, 32GB RAM (WSL: indicates running is WLS/Ubuntu20.10)
 
     MATLAB 9.9.0.1495850 (R2020b) Update 1 (threads= 6): t=139.11s, N_ite=  100000,      719 iterations/s
                                      PYTHON 3.7.4 (WSL): t=143.69s, N_ite=  100000,      696 iterations/s
@@ -34,26 +39,29 @@ The python version is installed thrugh the 64 bit Anaconda distribution from htt
                                             JULIA 1.5.3: t=265.37s, N_ite=  100000,      377 iterations/s
                                       JULIA 1.5.3 (WSL): t=309.31s, N_ite=  100000,      324 iterations/s
 
-### OS:Pop\!_OS 20.10, Intel i7-8700, 32GB RAM, 
+### OS:Pop\!_OS 20.10, Intel i7-8700, 6 cores/12 threads, 32GB RAM, 
 
 Note that for this run JULIA had a signifcant higher CPU load (800%) than MATLAB (600%)!
 
-    MATLAB 9.8.0.1323502 (R2020a) (threads= 6): t= 81.56s, N_ite=  100000,     1227 iterations/s
-                                  PYTHON 3.8.5: t=109.93s, N_ite=  100000,      910 iterations/s
-    MATLAB 9.8.0.1323502 (R2020a) (threads= 1): t=140.65s, N_ite=  100000,      711 iterations/s
-                                   JULIA 1.5.3: t=275.50s, N_ite=  100000,      363 iterations/s
+    MATLAB 9.8.0.1323502 (R2020a) (threads= 6): t= 81.56s, N_ite=  100000,     1227 iterations/s, av CPU load: 600%
+                                  PYTHON 3.8.5: t=109.93s, N_ite=  100000,      910 iterations/s, av CPU load: 600%
+    MATLAB 9.8.0.1323502 (R2020a) (threads= 1): t=140.65s, N_ite=  100000,      711 iterations/s, av CPU load: 100%
+                                   JULIA 1.5.3: t=275.50s, N_ite=  100000,      363 iterations/s, av CPU load: 800%
               
 ### OS:Pop\!_OS 20.10, AMD Ryzen Threadripper 2990WX, 32 cores/64 threads, 64GB RAM, 
 
-    MATLAB 9.8.0.1359463 (R2020a) Update 1 (threads=32): t=154.58s, N_ite=  100000,      647 iterations/s
-    MATLAB 9.8.0.1359463 (R2020a) Update 1 (threads= 1): t=153.93s, N_ite=  100000,      650 iterations/s
-                                            JULIA 1.5.3: t=162.38s, N_ite=  100000,      616 iterations/s
-                                           PYTHON 3.8.3: t=174.49s, N_ite=  100000,      574 iterations/s
+                                           PYTHON 3.8.5: t= 68.78s, N_ite=  100000,     1454 iterations/s, av CPU load: 6400%
+    MATLAB 9.8.0.1359463 (R2020a) Update 1 (threads= 1): t=153.93s, N_ite=  100000,      650 iterations/s, av CPU load: 100%
+    MATLAB 9.8.0.1359463 (R2020a) Update 1 (threads=32): t=154.58s, N_ite=  100000,      647 iterations/s, av CPU load: 100% (?)
+                                            JULIA 1.5.3: t=162.38s, N_ite=  100000,      616 iterations/s, av CPU load: 800%
+                                           PYTHON 3.8.3: t=174.49s, N_ite=  100000,      574 iterations/s, av CPU load: 100%
+                                           
 
 ### OS:Pop\!_OS 20.10, AMD Ryzen Threadripper 3990X, 64 cores/128 threads, 256GB RAM, 
                      
-                                           PYTHON 3.8.5: t= 29.92s, N_ite=  100000,     2243 iterations/s
-    MATLAB 9.9.0.1495850 (R2020b) Update 1 (threads= 1): t=128.12s, N_ite=  100000,      781 iterations/s
-                                            JULIA 1.5.3: t=143.80s, N_ite=  100000,      701 iterations/s
-    MATLAB 9.9.0.1495850 (R2020b) Update 1 (threads=64): t=154.86s, N_ite=  100000,      646 iterations/s
+                                           PYTHON 3.8.5: t= 29.92s, N_ite=  100000,     2243 iterations/s, av CPU load: 12800%
+    MATLAB 9.9.0.1495850 (R2020b) Update 1 (threads= 1): t=128.12s, N_ite=  100000,      781 iterations/s, av CPU load: 100%
+                                            JULIA 1.5.3: t=143.80s, N_ite=  100000,      701 iterations/s, av CPU load: 800%
+    MATLAB 9.9.0.1495850 (R2020b) Update 1 (threads=64): t=154.86s, N_ite=  100000,      646 iterations/s, av CPU load: 100% ??)
+                                           PYTHON 3.7.4: t=164.60s, N_ite=  100000,      608 iterations/s, av CPU load: 100%
 
