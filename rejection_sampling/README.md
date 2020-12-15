@@ -16,21 +16,15 @@ For this simple algorithm I find the speed to Julia and Maltab to be similar. Ma
 
 In ann cases Python is (more than 20 times) slower Matlab and Julia!
 
-### Windows 10, Intel i7-8650 (Surfacebook 2)
-
-The windows version of Matlab is run both directly in W10, and from Ubuntu 20.10 running in WSL (Windows Subsystem for Linux).
-Julia and Python has been installed and run in both W10 and Ubunut20.10/WSL.
-
-I consistently see slighter better performance running in Ubuntu20.10/WSL than in W10.
-
-    MATLAB 9.7.0.1190202 (R2019b from WSL): t=  4.62s, N_ite= 2000000,   432995 iterations/s
-    MATLAB 9.7.0.1190202 (R2019b W10):      t=  4.66s, N_ite= 2000000,   429646 iterations/s
-    JULIA 1.5.3 (WSL/Ubuntu 20.10)          t=  2.94s, N_ite=2000000, 679297 iterations/s
-    JULIA 1.5.3 (W10)                       t=  3.02s, N_ite=2000000, 662691 iterations/s
-    PYTHON 3.8.5 (WSL/Ubuntu 20.10) T       t= 70.21s, N_ite=2000000, 28486 iterations/s
-    PYTHON 3.7.3 (W10)                      t= 81.00s, N_ite=2000000, 24689 iterations/s
-    
-
+### Windows 10, Intel i7-8650 4 cores/8 threads, 16 GB RAM, (Surfacebook 2) ]WSL indicate running in WSL/Ubuntu2010]
+                      
+                       JULIA 1.5.3 (WSL): t=  2.82s, N_ite= 2000000,   709930 iterations/s   
+                             JULIA 1.5.3: t=  2.93s, N_ite= 2000000,   681664 iterations/s
+           MATLAB 9.7.0.1190202 (R2019b): t=  4.58s, N_ite= 2000000,   436491 iterations/s
+           MATLAB 9.7.0.1190202 (R2019b): t=  4.69s, N_ite= 2000000,   426168 iterations/s
+                      PYTHON 3.8.5 (WSL): t= 65.17s, N_ite= 2000000,    30691 iterations/s
+                            PYTHON 3.7.3: t= 68.84s, N_ite= 2000000,    29053 iterations/s
+                 
 ### OS:Pop\!_OS 20.10, Intel i7-8700, 32GB RAM, 
 
            MATLAB 9.8.0.1323502 (R2020a): t=  1.43s, N_ite= 2000000,  1400625 iterations/s
@@ -39,13 +33,14 @@ I consistently see slighter better performance running in Ubuntu20.10/WSL than i
 
 ### OS:Pop\!_OS 20.10, AMD Ryzen Threadripper 3990X 64 cores/128 threads, 256GB RAM, 
 
-    MATLAB 9.9.0.1495850 (R2020b) Update 1: t=  1.91s, N_ite= 2000000,  1045778 iterations/s
-                               JULIA 1.5.3: t=  1.92s, N_ite= 2000000,  1041644 iterations/s
-                              PYTHON 3.8.5: t= 54.58s, N_ite= 2000000,    36642 iterations/s
-
+    MATLAB 9.9.0.1495850 (R2020b) Update 1: t=  1.85s, N_ite= 2000000,  1080165 iterations/s
+    MATLAB 9.9.0.1495850 (R2020b) Update 1: t=  1.85s, N_ite= 2000000,  1082824 iterations/s
+                               JULIA 1.5.3: t=  1.98s, N_ite= 2000000,  1011213 iterations/s
+                              PYTHON 3.8.5: t= 50.08s, N_ite= 2000000,    39939 iterations/s
+                              
 ### OS:Pop\!_OS 20.10, AMD Ryzen Threadripper 2990WX 32 cores/64 threads, 64GB RAM, 
 
-    MATLAB 9.8.0.1359463 (R2020a) Update 1: t=  2.09s, N_ite= 2000000,   955214 iterations/s
-                               JULIA 1.5.3: t=  2.26s, N_ite= 2000000,   884552 iterations/s
-                              PYTHON 3.8.3: t= 69.64s, N_ite= 2000000,    28720 iterations/s
-
+    MATLAB 9.8.0.1359463 (R2020a) Update 1: t=  2.04s, N_ite= 2000000,   978559 iterations/s
+    MATLAB 9.8.0.1359463 (R2020a) Update 1: t=  2.10s, N_ite= 2000000,   953647 iterations/s
+                               JULIA 1.5.3: t=  2.16s, N_ite= 2000000,   925663 iterations/s
+         P                     YTHON 3.8.3: t= 64.47s, N_ite= 2000000,    31025 iterations/s
