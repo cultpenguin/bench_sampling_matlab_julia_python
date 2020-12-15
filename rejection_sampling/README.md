@@ -16,7 +16,7 @@ For this simple algorithm I find the speed to Julia and Maltab to be similar. Ma
 
 In all cases Python is (more than 20 times) slower Matlab and Julia!
 
-### Windows 10, Intel i7-8650 4 cores/8 threads, 16 GB RAM, (Surfacebook 2) ]WSL indicate running in WSL/Ubuntu2010]
+### Windows 10, Intel i7-8650, 4 cores/8 threads, 16 GB RAM, (Surfacebook 2) ]WSL indicate running in WSL/Ubuntu2010]
                       
                        JULIA 1.5.3 (WSL): t=  2.82s, N_ite= 2000000,   709930 iterations/s   
                              JULIA 1.5.3: t=  2.93s, N_ite= 2000000,   681664 iterations/s
