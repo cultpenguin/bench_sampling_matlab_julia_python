@@ -1,7 +1,6 @@
 ##
 using Random, MAT, Statistics, Printf
-
-N_threads = ccall((:openblas_get_num_threads64_, Base.libblas_name), Cint, ())
+  
 
 ##
 function forward(m,x)
@@ -59,7 +58,7 @@ t_stop=time()
 #println("End rejection sampling")
 t_elapsed  = t_stop-t_start
 
-@printf("%24s%6s (%d threads): t=%6.2fs, N_ite=%8d, %8d iterations/s\n", "JULIA", VERSION, N_threads,t_elapsed, N_ite, ceil(N_ite/t_elapsed))
+@printf("%34s%6s: t=%6.2fs, N_ite=%8d, %8d iterations/s\n", "JULIA", VERSION, t_elapsed, N_ite, ceil(N_ite/t_elapsed))
 
 ## Posterior statistics
 showPostStat=0
