@@ -1,18 +1,19 @@
 ##
 using Random, MAT, Statistics, Printf, LinearAlgebra
 using Plots
-#BLAS.set_num_threads(4)
 doPlot=0
 
-N_threads = ccall((:openblas_get_num_threads64_, Base.libblas_name), Cint, ())
+try
+  global N_threads = ccall((:openblas_get_num_threads64_, Base.libblas_name), Cint, ())
+catch
+  global N_threads = 0
+end
 
 ## Functions
-
 function forward(G,m)
     d= G*(m[:].^(-1))
     return d
 end
-
 
 function log_likelihood(d,d_obs,iCd)
     logL = -0.5*(d-d_obs)'*iCd*(d-d_obs)
@@ -125,7 +126,7 @@ end
 t_stop=time()
 t_elapsed  = (t_stop-t_start)
 
-@printf("%24s%6s (nthreads=%d): t=%6.2fs, N_ite=%8d, %8d iterations/s\n", "JULIA", VERSION,N_threads,t_elapsed, N_ite, ceil(N_ite/t_elapsed))
+@printf("%24s%6s (%s,%dt): t=%6.2fs, N_ite=%8d, %8d iterations/s\n", "JULIA", VERSION,BLAS.vendor(),N_threads,t_elapsed, N_ite, ceil(N_ite/t_elapsed))
 
 ## Burnin
 burnin=Int(ceil(10000/i_save))
