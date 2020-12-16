@@ -4,7 +4,8 @@ using Plots
 #BLAS.set_num_threads(4)
 doPlot=0
 
-N_threads = ccall((:openblas_get_num_threads64_, Base.libblas_name), Cint, ())
+#N_threads = ccall((:openblas_get_num_threads64_, Base.libblas_name), Cint, ())
+N_threads = 0
 
 ## Functions
 
