@@ -44,10 +44,11 @@ Some version of Python use all avaiable cores by default, where as others use on
 
 Note that for this run JULIA had a signifcant higher CPU load (800%) than MATLAB (600%)!
 
+                          JULIA 1.5.3 (mkl,0t): t= 67.25s, N_ite=  100000,     1487 iterations/s, av CPU load: 600%
     MATLAB 9.8.0.1323502 (R2020a) (threads= 6): t= 81.56s, N_ite=  100000,     1227 iterations/s, av CPU load: 600%
                                   PYTHON 3.8.5: t=109.93s, N_ite=  100000,      910 iterations/s, av CPU load: 600%
     MATLAB 9.8.0.1323502 (R2020a) (threads= 1): t=140.65s, N_ite=  100000,      711 iterations/s, av CPU load: 100%
-                                   JULIA 1.5.3: t=275.50s, N_ite=  100000,      363 iterations/s, av CPU load: 800%
+                    JULIA 1.5.3(openblas64,8t): t=275.50s, N_ite=  100000,      363 iterations/s, av CPU load: 800%
               
 ### OS:Pop\!_OS 20.10, AMD Ryzen Threadripper 2990WX, 32 cores/64 threads, 64GB RAM, 
 
