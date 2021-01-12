@@ -32,21 +32,23 @@ Some version of Python use all avaiable cores by default, where as others use on
 
 ### Windows 10, Intel i7-8700K, 6 cores/12 threads, 32GB RAM (WSL: indicates running is WLS/Ubuntu20.10)
 
+                                   JULIA 1.5.3 (mkl,0t): t=120.66s, N_ite=  100000,      829 iterations/s
     MATLAB 9.9.0.1495850 (R2020b) Update 1 (threads= 6): t=139.11s, N_ite=  100000,      719 iterations/s
                                      PYTHON 3.7.4 (WSL): t=143.69s, N_ite=  100000,      696 iterations/s
                                            PYTHON 3.7.9: t=163.09s, N_ite=  100000,      614 iterations/s
     MATLAB 9.9.0.1495850 (R2020b) Update 1 (threads= 1): t=187.37s, N_ite=  100000,      534 iterations/s
-                                            JULIA 1.5.3: t=265.37s, N_ite=  100000,      377 iterations/s
-                                      JULIA 1.5.3 (WSL): t=309.31s, N_ite=  100000,      324 iterations/s
-
+                                 JULIA 1.5.3 (openblas): t=265.37s, N_ite=  100000,      377 iterations/s
+                            JULIA 1.5.3 (openblas64,8t): t=339.55s, N_ite=  100000,      295 iterations/s
+                            
 ### OS:Pop\!_OS 20.10, Intel i7-8700, 6 cores/12 threads, 32GB RAM, 
 
 Note that for this run JULIA had a signifcant higher CPU load (800%) than MATLAB (600%)!
 
+                          JULIA 1.5.3 (mkl,0t): t= 67.25s, N_ite=  100000,     1487 iterations/s, av CPU load: 600%
     MATLAB 9.8.0.1323502 (R2020a) (threads= 6): t= 81.56s, N_ite=  100000,     1227 iterations/s, av CPU load: 600%
                                   PYTHON 3.8.5: t=109.93s, N_ite=  100000,      910 iterations/s, av CPU load: 600%
     MATLAB 9.8.0.1323502 (R2020a) (threads= 1): t=140.65s, N_ite=  100000,      711 iterations/s, av CPU load: 100%
-                                   JULIA 1.5.3: t=275.50s, N_ite=  100000,      363 iterations/s, av CPU load: 800%
+                    JULIA 1.5.3(openblas64,8t): t=275.50s, N_ite=  100000,      363 iterations/s, av CPU load: 800%
               
 ### OS:Pop\!_OS 20.10, AMD Ryzen Threadripper 2990WX, 32 cores/64 threads, 64GB RAM, 
 
