@@ -61,7 +61,7 @@ Note that for this run JULIA had a signifcant higher CPU load (800%) than MATLAB
 
 ### OS:Pop\!_OS 20.10, AMD Ryzen Threadripper 3990X, 64 cores/128 threads, 256GB RAM, 
                      
-                                           PYTHON 3.8.5: t= 29.92s, N_ite=  100000,     2243 iterations/s, av CPU load: 12800%
+                                           PYTHON 3.8.5: t= 28.79s, N_ite=  100000,     3474 iterations/s, av CPU load: 12800%
     MATLAB 9.9.0.1495850 (R2020b) Update 1 (threads= 1): t=128.12s, N_ite=  100000,      781 iterations/s, av CPU load: 100%
                                             JULIA 1.5.3: t=143.80s, N_ite=  100000,      701 iterations/s, av CPU load: 800%
     MATLAB 9.9.0.1495850 (R2020b) Update 1 (threads=64): t=154.86s, N_ite=  100000,      646 iterations/s, av CPU load: 100% ??)
