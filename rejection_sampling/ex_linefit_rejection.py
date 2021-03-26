@@ -34,7 +34,7 @@ nm=3
 nd=len(d_obs)
 
 #%% The rejection sampler
-N_ite=500000;
+N_ite=200000;
 N_acc=0;
 logL_max  =  -250
 

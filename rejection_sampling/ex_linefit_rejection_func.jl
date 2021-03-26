@@ -62,7 +62,7 @@ nd=length(d_obs)
 nm=3
 
 ## Rejection sampler
-N_ite=5000000
+N_ite=2000000
 N_acc=0
 logL_max = -250
 
